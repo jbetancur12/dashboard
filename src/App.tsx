@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ConfigProvider } from 'antd';
+import deDe from 'antd/lib/locale/de_DE';
+import enUS from 'antd/lib/locale/en_US';
+import { AppRouter } from '@app/components/router/AppRouter';
+import { useLanguage } from './hooks/useLanguage';
 
 function App() {
+   const { language } = useLanguage();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ConfigProvider locale={language === 'en' ? enUS : deDe}>
+<AppRouter />
+    </ConfigProvider>
+    </>
   );
 }
 
