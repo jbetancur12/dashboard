@@ -5,12 +5,12 @@ import { AppRouter } from '@app/components/router/AppRouter';
 import { useLanguage } from './hooks/useLanguage';
 
 function App() {
-   const { language } = useLanguage();
+  const { language } = useLanguage();
   return (
     <>
-    <ConfigProvider locale={language === 'en' ? enUS : deDe}>
-<AppRouter />
-    </ConfigProvider>
+      <ConfigProvider locale={language === 'en' ? enUS : deDe}>
+        <AppRouter />
+      </ConfigProvider>
     </>
   );
 }
