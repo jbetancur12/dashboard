@@ -182,8 +182,8 @@ export const AppRouter: React.FC = () => {
             <Route path="skeleton" element={<Skeletons />} />
           </Route>
         </Route> */}
-        <Route path="/auth" element={<AuthLayoutFallback />}>
-          <Route path="login" element={<LoginPage />} />
+        <Route path="/" element={<AuthLayoutFallback />}>
+          <Route path="" element={<LoginPage />} />
           {/* <Route path="sign-up" element={<SignUpPage />} /> */}
           {/* <Route
             path="lock"
