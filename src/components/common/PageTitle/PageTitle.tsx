@@ -1,7 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export const PageTitle: React.FC = ({ children }) => {
+type Props = {
+  children: React.ReactNode; //👈 children prop typr
+};
+
+export const PageTitle = ({ children }: Props) => {
   return (
     <Helmet>
       <title>{children} | Lightence Admin</title>

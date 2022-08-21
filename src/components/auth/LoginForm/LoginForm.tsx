@@ -5,8 +5,8 @@ import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doLogin } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
-import { ReactComponent as FacebookIcon } from '@app/assets/icons/facebook.svg';
-import { ReactComponent as GoogleIcon } from '@app/assets/icons/google.svg';
+// import { ReactComponent as FacebookIcon } from '@app/assets/icons/facebook.svg';
+// import { ReactComponent as GoogleIcon } from '@app/assets/icons/google.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 
@@ -78,7 +78,7 @@ export const LoginForm: React.FC = () => {
             {t('common.login')}
           </Auth.SubmitButton>
         </BaseForm.Item>
-        <BaseForm.Item noStyle>
+        {/* <BaseForm.Item noStyle>
           <Auth.SocialButton type="default" htmlType="submit">
             <Auth.SocialIconWrapper>
               <GoogleIcon />
@@ -93,7 +93,7 @@ export const LoginForm: React.FC = () => {
             </Auth.SocialIconWrapper>
             {t('login.facebookLink')}
           </Auth.SocialButton>
-        </BaseForm.Item>
+        </BaseForm.Item> */}
         <Auth.FooterWrapper>
           <Auth.Text>
             {t('login.noAccount')}{' '}

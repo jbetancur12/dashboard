@@ -9,6 +9,7 @@ interface LoadingProps {
 
 export const Loading: React.FC<LoadingProps> = ({ size, color }) => {
   const theme = useTheme();
+  console.log(theme);
   const spinnerColor = color || theme.colors.main.spinnerBase;
 
   return (

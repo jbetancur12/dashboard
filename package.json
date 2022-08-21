@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@craco/craco": "^6.4.5",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -13,10 +14,13 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "antd": "^4.22.6",
-    "axios": "^0.27.2",
+    "axios": "^0.24.0",
+    "axios-mock-adapter": "^1.20.0",
     "dayjs": "^1.11.5",
+    "echarts": "^5.3.3",
     "i18next": "^21.9.1",
     "react": "^18.2.0",
+    "react-css-theme-switcher": "^0.3.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.18.4",
@@ -25,22 +29,20 @@
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpackbar": "^5.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run buildThemes && craco start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
     "lint:styles": "stylelint '*/**/*.{js,ts,tsx}'",
-    "prepare": "husky install"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "prepare": "husky install",
+    "buildLightTheme": "lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/light/main-light.less public/themes/main-light.css",
+    "buildDarkTheme": "lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/dark/main-dark.less public/themes/main-dark.css",
+    "buildThemes": "npm run buildLightTheme && npm run buildDarkTheme"
   },
   "browserslist": {
     "production": [
@@ -57,20 +59,26 @@
   "devDependencies": {
     "@types/react-helmet": "^6.1.5",
     "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "craco-alias": "^3.0.1",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
+    "less": "^4.1.3",
+    "less-plugin-clean-css": "^1.5.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "stylelint": "^14.10.0",
     "stylelint-config-recommended": "^9.0.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.10.0"
+    "stylelint-processor-styled-components": "^1.10.0",
+    "webpack-bundle-analyzer": "^4.6.0"
   },
   "lint-staged": {
-    "*/**/*.{js,ts,tsx}": "npx run lint"
+    "*/**/*.{js,ts,tsx}": "npx lint"
   }
 }
