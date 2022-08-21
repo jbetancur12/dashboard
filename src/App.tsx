@@ -10,12 +10,16 @@ import { useAppSelector } from './hooks/reduxHooks';
 import { useMemo } from 'react';
 import { darkTheme } from './styles/themes/dark/darkTheme';
 import lightTheme from './styles/themes/light/lightTheme';
+import { usePWA } from './hooks/usePWA';
 
 function App() {
   const theme = useAppSelector((state) => state.theme.theme);
   const currentTheme = useMemo(() => (theme === 'dark' ? darkTheme : lightTheme), [theme]);
 
   const { language } = useLanguage();
+
+  usePWA();
+
   return (
     <>
       <meta name="theme-color" content={currentTheme.colors.main.primary} />

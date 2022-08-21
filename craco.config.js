@@ -5,6 +5,9 @@ const CracoAlias = require('craco-alias');
 process.env.BROWSER = 'none';
 
 module.exports = {
+  devServer: {
+    port: 4000
+  },
   webpack: {
     plugins: [
       new WebpackBar({ profile: true }),
